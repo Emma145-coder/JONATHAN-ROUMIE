@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Jonathan Roumie</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Allow scrolling */
+        html,  body {
+            width: 100%;
+            background-color: #8b6b42; 
+            overflow-x: hidden;
+            overflow-y: auto; 
+        }
+
+        /* The Main Screen Container */
+        .screen-container {
+            position: relative;
+            width: 100%;
+            min-height: 100dvh; 
+            background-color: #8b6b42;
+        }
+
+        /* The Image */
+        .full-image {
+            width: 100%;
+            height: auto; 
+            display: block;
+        }
+
+        /* --- CONTACT BUTTON (Floating) --- */
+        .contact-btn {
+            position: fixed; 
+            bottom: 20px;
+            right: 20px;
+            background-color: #d4af37;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            border: 2px solid #fff;
+            cursor: pointer;
+            z-index: 20;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            transition: transform 0.1s;
+        }
+
+        .contact-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* --- CONTACT PAGE --- */
+        #contact-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100dvh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('https://i.ibb.co/0yy1pw9Z/IMG-7184.jpg');
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(5px);
+            color: #fff;
+            display: none; 
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            z-index: 100;
+            overflow-y: auto; 
+        }
+
+        #contact-page h2 {
+            color: #e5b85c;
+            font-size: 24px;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing:2px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .contact-card {
+            background-color: rgba(15, 15, 15, 0.9);
+            border: 2px solid #d4af37;
+            border-radius: 12px;
+            padding: 30px 20px;
+            width: 100%;
+            max-width: 340px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .action-btn {
+            display: block;
+            background-color: transparent;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover, .action-btn:active {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+            color: #e5b85c;
+            transform: scale(1.02);
+        }
+
+        .action-btn span {
+            display: block;
+            font-size: 13px;
+            font-weight: normal;
+            color: #aaa;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            text-transform: none;
+        }
+
+        .back-btn {
+            background-color: transparent;
+            color: #fff;
+            padding: 10px 25px;
+            border: 1px solid #fff;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 30px;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .back-btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MAIN SCREEN -->
+    <div class="screen-container" id="main-screen">
+        <img src="https://i.ibb.co/0yy1pw9Z/IMG-7184.jpg" alt="Jonathan Roumie" class="full-image">
+    </div>
+
+    <!-- Contact Button -->
+    <button class="contact-btn" onclick="openContact()">Contact</button>
+
+    <!-- CONTACT SCREEN -->
+    <div id="contact-page">
+        
+        <h2>Get In Touch</h2>
+        
+        <div class="contact-card">
+            <!-- Text Me Link (Added +1 for USA) -->
+            <a href="sms:+17162320946" class="action-btn">
+                Text Me
+                <span>716-232-0946</span>
+            </a>
+            
+            <!-- Email Me Link -->
+            <a href="mailto:jonathangeorgeroumie78@gmail.com" class="action-btn">
+                Email Me
+                <span>jonathangeorgeroumie78@gmail.com</span>
+            </a>
+        </div>
+
+        <button class="back-btn" onclick="closeContact()">Back to Site</button>
+    </div>
+
+    <script>
+        function openContact() {
+            document.querySelector('.contact-btn').style.display = 'none';
+            document.getElementById('contact-page').style.display = 'flex';
+        }
+
+        function closeContact() {
+            document.querySelector('.contact-btn').style.display = 'block';
+            document.getElementById('contact-page').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
